@@ -1,6 +1,7 @@
 package ee.catmug;
 
 
+import java.util.UUID;
 import java.util.logging.*;
 
 import javax.jms.Destination;
@@ -54,7 +55,7 @@ public class Main {
         producer = context.createProducer();
         logger.info("producer created");
 
-        String messageText = "test message woop woop!";
+        String messageText = "test message woop woop: " + UUID.randomUUID();
         TextMessage message = context.createTextMessage(messageText);
         producer.send(destination, message);
 
